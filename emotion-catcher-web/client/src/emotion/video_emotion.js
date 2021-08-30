@@ -75,7 +75,7 @@ sessionStorage 비움(이전 데이터 축적 방지)
     if (videoState === 1) {
       window.sessionStorage.setItem(
         String(currentTime),
-        JSON.stringify(emotionData)
+        JSON.stringify(emotionData) + ","
       );
     }
   });
@@ -174,6 +174,24 @@ sessionStorage 비움(이전 데이터 축적 방지)
 
   // 모달 닫기 버튼(최종 -> 삭제)
   const handleClose = () => setModalIsOpen(false);
+  const handleShow = () => setModalIsOpen(true);
+  const modalEvent = () => {
+    let emo = JSON.stringify(window.sessionStorage);
+    emo = emo.replace(/\"/g, '"');
+    emo = emo.replace(/\\/g, "");
+    console.log(emo, typeof emo);
+    axios
+      .post("http://localhost:4000/emotion", {
+        videoId: id,
+        emotionData: emo,
+      })
+      .catch((err) => {
+        console.log(err);
+      })
+      .then((result) => {
+        console.log(result);
+      });
+  };
 
   return (
     <div>
@@ -217,22 +235,31 @@ sessionStorage 비움(이전 데이터 축적 방지)
         />
       </div>
       <div>
+        <Button variant="primary" onClick={handleShow}>
+          Launch demo modal
+        </Button>
         <Modal
+          size="lg"
           show={modalIsOpen}
           onHide={handleClose}
           backdrop="static"
           keyboard={false}
+          aria-labelledby="contained-modal-title-vcenter"
+          centered
         >
           <Modal.Header>
-            <Modal.Title>감정 분석 데이터 보내기</Modal.Title>
+            <Modal.Title>영상이 모두 종료되었습니다.</Modal.Title>
           </Modal.Header>
-          <Modal.Body>영상이 모두 종료되었습니다.</Modal.Body>
+          <Modal.Body>
+            다음 페이지에서 <strong>나의 감정 분석 리포트</strong>를
+            확인해보세요!
+          </Modal.Body>
           <Modal.Footer>
             <Button variant="secondary" onClick={handleClose}>
-              Close
+              닫기(없앨 버튼)
             </Button>
-            <Button variant="primary" onClick={handleClose}>
-              Save Changes
+            <Button variant="primary" onClick={modalEvent}>
+              감정 분석 리포트 확인하러 가기
             </Button>
           </Modal.Footer>
         </Modal>

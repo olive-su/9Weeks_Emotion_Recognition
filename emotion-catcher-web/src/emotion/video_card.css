@@ -1,9 +1,0 @@
-/* https://bootsnipp.com/snippets/ORE0l */
-/* text truncation 3 line */
-.crop-text-3 {
-  -webkit-line-clamp: 3;
-  overflow: hidden;
-  text-overflow: ellipsis;
-  display: -webkit-box;
-  -webkit-box-orient: vertical;
-}
