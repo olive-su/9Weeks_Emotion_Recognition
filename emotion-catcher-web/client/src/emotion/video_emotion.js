@@ -73,10 +73,7 @@ sessionStorage 비움(이전 데이터 축적 방지)
   */
   useEffect(() => {
     if (videoState === 1) {
-      window.sessionStorage.setItem(
-        String(currentTime),
-        JSON.stringify(emotionData) + ","
-      );
+      window.sessionStorage.setItem(currentTime, JSON.stringify(emotionData));
     }
   });
 
@@ -177,13 +174,24 @@ sessionStorage 비움(이전 데이터 축적 방지)
   const handleShow = () => setModalIsOpen(true);
   const modalEvent = () => {
     let emo = JSON.stringify(window.sessionStorage);
-    emo = emo.replace(/\"/g, '"');
-    emo = emo.replace(/\\/g, "");
-    console.log(emo, typeof emo);
+    emo = emo.replace(/"{/g, "{");
+    emo = emo.replace(/"}/g, "}");
+    emo = emo.replace(/}"/g, "}");
+    emo = emo.replace(/\\"/g, '"');
+    emo = JSON.parse(emo);
+    let newEmo = {};
+    newEmo = Object.keys(emo)
+      .sort()
+      .reduce((newEmo, key) => {
+        newEmo[key] = emo[key];
+        return newEmo;
+      }, {});
+    newEmo = JSON.stringify(newEmo);
+    console.log(newEmo, typeof newEmo);
     axios
       .post("http://localhost:4000/emotion", {
         videoId: id,
-        emotionData: emo,
+        emotionData: newEmo,
       })
       .catch((err) => {
         console.log(err);
