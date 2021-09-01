@@ -5,7 +5,7 @@ const app = express();
 const PORT = process.env.PORT || 4000;
 const bodyParser = require("body-parser");
 const db = require("./config/db");
-
+app.use(cors());
 /* bodyParser 최대 용량 확장 */
 app.use(
   express.json({
@@ -73,5 +73,3 @@ app.post("/emotion", (req, res) => {
 app.listen(PORT, () => {
   console.log(`Server On : http://localhost:${PORT}/`);
 });
-
-app.use(cors());

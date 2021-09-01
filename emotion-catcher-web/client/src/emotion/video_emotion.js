@@ -263,12 +263,9 @@ sessionStorage 비움(이전 데이터 축적 방지)
             확인해보세요!
           </Modal.Body>
           <Modal.Footer>
-            <Button variant="secondary" onClick={handleClose}>
-              닫기(없앨 버튼)
-            </Button>
-            <Button variant="primary" onClick={modalEvent}>
+            <a class="btn btn-primary" href="/report" role="button">
               감정 분석 리포트 확인하러 가기
-            </Button>
+            </a>
           </Modal.Footer>
         </Modal>
       </div>
