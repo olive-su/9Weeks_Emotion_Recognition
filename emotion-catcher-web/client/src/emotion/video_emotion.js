@@ -150,6 +150,7 @@ sessionStorage 비움(이전 데이터 축적 방지)
     console.log("videoState : ", videoState);
     if (currenteTime / duration > 0.99) {
       setModalIsOpen(true);
+      modalEvent();
     }
   };
 
@@ -163,15 +164,13 @@ sessionStorage 비움(이전 데이터 축적 방지)
       color: "red", // 영상 진행률 표시
       disablekb: 1, // 키보드 컨트롤러 응답 금지
       fs: 0, // 전체화면 표시 x
-      controls: 0, // 0 : 동영상 컨트롤러 표시 x
+      controls: 1, // 0 : 동영상 컨트롤러 표시 x
       rel: 0, // 관련 동영상 표시 x
       playsinline: 1,
     },
   };
 
   // 모달 닫기 버튼(최종 -> 삭제)
-  const handleClose = () => setModalIsOpen(false);
-  const handleShow = () => setModalIsOpen(true);
   const modalEvent = () => {
     let emo = JSON.stringify(window.sessionStorage);
     emo = emo.replace(/"{/g, "{");
@@ -243,13 +242,9 @@ sessionStorage 비움(이전 데이터 축적 방지)
         />
       </div>
       <div>
-        <Button variant="primary" onClick={handleShow}>
-          Launch demo modal
-        </Button>
         <Modal
           size="lg"
           show={modalIsOpen}
-          onHide={handleClose}
           backdrop="static"
           keyboard={false}
           aria-labelledby="contained-modal-title-vcenter"
