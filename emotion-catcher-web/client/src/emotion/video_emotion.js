@@ -1,7 +1,8 @@
 import axios from "axios";
 import { useEffect, useState, useRef } from "react";
 import YouTube from "react-youtube";
-import { Modal, Button } from "react-bootstrap";
+import { Modal } from "react-bootstrap";
+import * as Icon from "react-bootstrap-icons";
 import * as faceapi from "face-api.js";
 
 // id값 path parameter로 받아옴
@@ -13,12 +14,12 @@ const VideoEmotionPage = ({ match }) => {
   const [currentTime, setCurrentTime] = useState(false);
   const [emotionData, setEmotionData] = useState(false);
   const [initializing, setInitializing] = useState(false);
+  const [showAlert, setShowAlert] = useState(true);
   let videoCode;
   const videoHeight = 240;
   const videoWidth = 360;
   const videoRef = useRef();
   const canvasRef = useRef();
-
   /*
 sessionStorage 비움(이전 데이터 축적 방지)
 서버에서 영상 정보 받아옴
@@ -108,6 +109,7 @@ sessionStorage 비움(이전 데이터 축적 방지)
       // detections 데이터(감정 데이터)가 있을 경우에만 emotionData로 저장
       if (detections.length === 1) {
         setEmotionData(detections[0].expressions);
+        setShowAlert(false);
       }
     }, 100);
   };
@@ -118,6 +120,68 @@ sessionStorage 비움(이전 데이터 축적 방지)
       <div class="spinner-border m-5" role="status">
         <span class="visually-hidden">Loading...</span>
       </div>
+    );
+  }
+
+  function alertYoutube() {
+    if (showAlert) {
+      return (
+        <div>
+          <div class="alert alert-primary mx-2" role="alert">
+            <div class="d-flex flex-row align-items-center">
+              <Icon.InfoCircleFill
+                color="currentColor"
+                size={25}
+                className="mx-2"
+              />
+              <h4 class="alert-heading">주의사항</h4>
+            </div>
+            <p>
+              <ul>
+                <li>
+                  영상은 카메라가 <strong>얼굴 표정</strong>을 인식한 이후에
+                  나타납니다!
+                </li>
+                <li>
+                  카메라에는 <strong>한 사람의 얼굴</strong>만 보여야 정확한
+                  결과를 도출할 수 있습니다.
+                </li>
+                <li>
+                  영상 재생이 시작된 이후에는 영상을{" "}
+                  <strong>되감기 할 수 없습니다.</strong>
+                  <br />
+                  <small class="text-muted">
+                    (영상을 끝까지 시청할 수 있는 경우에만 서비스를
+                    이용해주세요!)
+                  </small>
+                </li>
+              </ul>
+              <hr />
+              <u>
+                카메라가 얼굴을 잘 인식하지 못하면 아래 사항들을 확인해보고{" "}
+                <strong>새로고침</strong>을 눌러주세요!
+              </u>
+              <br />
+              <small class="text-muted">
+                1. 밝은 곳에서 영상을 시청해주세요!
+                <br />
+                2. 눈·코·입, 얼굴형이 모두 카메라에 나오게 해주세요!
+                <br />
+                3. 간혹 안경을 착용한 얼굴을 잘 인식하지 못하는 경우가 있어요…
+                <Icon.EmojiDizzy />
+              </small>
+            </p>
+          </div>
+        </div>
+      );
+    }
+    return (
+      <YouTube
+        videoId={videoCode}
+        containerClassName="embed embed-youtube"
+        onStateChange={(e) => checkElapsedTime(e)}
+        opts={options}
+      />
     );
   }
 
@@ -164,7 +228,7 @@ sessionStorage 비움(이전 데이터 축적 방지)
       color: "red", // 영상 진행률 표시
       disablekb: 1, // 키보드 컨트롤러 응답 금지
       fs: 0, // 전체화면 표시 x
-      controls: 1, // 0 : 동영상 컨트롤러 표시 x
+      controls: 0, // 0 : 동영상 컨트롤러 표시 x
       rel: 0, // 관련 동영상 표시 x
       playsinline: 1,
     },
@@ -203,7 +267,7 @@ sessionStorage 비움(이전 데이터 축적 방지)
   return (
     <div>
       <div class="d-flex justify-content-center align-items-center flex-wrap m-2">
-        <div class="d-flex justify-content-end">
+        <div class="d-flex justify-content-end m-2">
           <video
             ref={videoRef}
             autoPlay
@@ -234,13 +298,8 @@ sessionStorage 비움(이전 데이터 축적 방지)
             영상을 <strong>집중해서</strong> 봐주세요!
           </div>
         </div>
-        <YouTube
-          videoId={videoCode}
-          containerClassName="embed embed-youtube"
-          onStateChange={(e) => checkElapsedTime(e)}
-          opts={options}
-        />
       </div>
+      <div class="d-flex justify-content-center">{alertYoutube()}</div>
       <div>
         <Modal
           size="lg"
