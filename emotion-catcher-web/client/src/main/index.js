@@ -1,19 +1,16 @@
 import React from "react";
 import "./index.css";
-import axios from "axios";
-import { Link } from "react-router-dom";
-import { Carousel, Container, Button, Nav } from "react-bootstrap";
+import { Carousel } from "react-bootstrap";
 
 function MainPage() {
   return (
     <div>
-      {/* 슬라이딩 배너 - react bootstrap bootstrap 변환 필요*/}
       <Carousel fade>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="images/banner.png"
-            alt="First slide"
+            src="images/banner2.png"
+            alt="Second slide"
           />
           <Carousel.Caption>
             <h3>First slide label</h3>
@@ -23,7 +20,7 @@ function MainPage() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="images/banner.png"
+            src="images/banner2.png"
             alt="Second slide"
           />
 
@@ -35,7 +32,7 @@ function MainPage() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="images/banner.png"
+            src="images/banner2.png"
             alt="Third slide"
           />
 
@@ -51,13 +48,15 @@ function MainPage() {
       {/* 링크 컨테이너 */}
       <div class="position-relative overflow-hidden p-md-5 text-center">
         <div class="col-md-5 p-lg-5 mx-auto my-5">
-          <h1 class="display-4 fw-normal">Main headline</h1>
+          <h1 class="display-4 fw-normal">
+            AI Reseacher
+            <br /> 'Emotion Catcher'
+          </h1>
           <p class="lead fw-normal">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Lorem ipsum
-            dolor sit amet, consectetur adipiscing elit.
+            영상 콘텐츠에 대한 소비자의 반응을 실시간 분석
           </p>
           <a class="btn btn-outline-secondary" href="#">
-            Button Text
+            자세히 알아보기
           </a>
         </div>
         <div class="product-device shadow-sm d-none d-md-block"></div>
@@ -70,30 +69,24 @@ function MainPage() {
       <div class="row featurette mx-5">
         <div class="col-md-7 my-5 text-center">
           <h2 class="featurette-heading">
-            First featurette heading.{" "}
-            <span class="text-muted">Style text.</span>
+            소비자의 반응을 바로
+            <br />
+            <span class="fs-2 text-muted"> 실시간 캐치 </span>
           </h2>
+          <br />
           <p class="lead">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            소비자의 표정을 <strong>실시간</strong>으로 분석하여 알려주는 리서치
+            서비스
           </p>
         </div>
         <div class="col-md-5">
-          <svg
-            class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+          <img
+            class="img-fluid"
+            alt="intro_img1"
+            src="images/main_intro_1.png"
             width="500"
             height="500"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Placeholder: 500x500"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false"
-          >
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#eee" />
-            <text x="50%" y="50%" fill="#aaa" dy=".3em">
-              500x500
-            </text>
-          </svg>
+          />
         </div>
       </div>
 
@@ -104,30 +97,27 @@ function MainPage() {
       <div class="row featurette mx-5">
         <div class="col-md-7 order-md-2 my-5 text-center">
           <h2 class="featurette-heading">
-            Second featurette heading.{" "}
-            <span class="text-muted">Style text.</span>
+            <p class="fs-2">
+              <u>저비용</u> <u>고효율</u>
+            </p>
+            <span class="text-muted"> 온라인 리서치</span>
           </h2>
+          <br />
           <p class="lead">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            기존의 포커스 그룹 인터뷰 보다
+            <br /> <strong>저렴한 비용</strong>으로 더 다양한 인터뷰이와 진행이
+            가능합니다.
           </p>
         </div>
         <div class="col-md-5 order-md-1">
-          <svg
-            class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+          {" "}
+          <img
+            class="img-fluid"
+            alt="intro_img2"
+            src="images/main_intro_2.png"
             width="500"
             height="500"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Placeholder: 500x500"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false"
-          >
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#eee" />
-            <text x="50%" y="50%" fill="#aaa" dy=".3em">
-              500x500
-            </text>
-          </svg>
+          />
         </div>
       </div>
 
@@ -138,30 +128,22 @@ function MainPage() {
       <div class="row featurette mx-5">
         <div class="col-md-7 my-5 text-center">
           <h2 class="featurette-heading">
-            Third featurette heading.{" "}
-            <span class="text-muted">Style text.</span>
+            시간 절약 <br />
+            <span class="fs-2 text-muted"> 원스톱 진행</span>
           </h2>
           <p class="lead">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+            소비자의 반응 실시간 분석에서 결과보고서까지 <br />
+            원스톱으로 진행이 됩니다.
           </p>
         </div>
         <div class="col-md-5">
-          <svg
-            class="bd-placeholder-img bd-placeholder-img-lg featurette-image img-fluid mx-auto"
+          <img
+            class="img-fluid"
+            alt="intro_img3"
+            src="images/main_intro_3.png"
             width="500"
             height="500"
-            xmlns="http://www.w3.org/2000/svg"
-            role="img"
-            aria-label="Placeholder: 500x500"
-            preserveAspectRatio="xMidYMid slice"
-            focusable="false"
-          >
-            <title>Placeholder</title>
-            <rect width="100%" height="100%" fill="#eee" />
-            <text x="50%" y="50%" fill="#aaa" dy=".3em">
-              500x500
-            </text>
-          </svg>
+          />
         </div>
       </div>
     </div>

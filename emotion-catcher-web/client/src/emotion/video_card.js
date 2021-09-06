@@ -3,6 +3,7 @@ import { useEffect, useState } from "react";
 import dayjs from "dayjs";
 import relativeTime from "dayjs/plugin/relativeTime";
 import "./video_card.css"; // description 3줄 적용
+import * as Icon from "react-bootstrap-icons";
 
 // dayjs 플러그인 (현재 시간으로부터 남은 기간 표시)
 dayjs.extend(relativeTime);
@@ -15,7 +16,7 @@ function VideoCard(props) {
     axios
       .get(`http://localhost:4000/video/${id}`)
       .then(function (result) {
-        /* [{"id":1,"title":" ... humbnail.jpg"}] 
+        /* [{"id":1,"title":" ... thumbnail.jpg"}] 
         리스트 형태로 랩핑 -> idx 0 추출*/
         const video = result.data[0];
         setVideo(video);
@@ -38,12 +39,18 @@ function VideoCard(props) {
     <div>
       <div class="col">
         <div class="card shadow-sm">
-          <a href={videoPage}>
+          <a
+            class="position-relative d-flex justify-content-center align-items-center"
+            href={videoPage}
+          >
+            <div class="position-absolute">
+              <Icon.CaretRightFill size={125} color="white" opacity="0.8" />
+            </div>
             <img
-              class="img-fluid"
               width="100%"
-              height="auto"
-              src={video.imageUrl}
+              height="100%"
+              class="img-fluid"
+              src={video.image_url}
             />
           </a>
           <div class="card-body">

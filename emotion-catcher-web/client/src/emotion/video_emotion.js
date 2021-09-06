@@ -29,7 +29,7 @@ sessionStorage 비움(이전 데이터 축적 방지)
     axios
       .get(`http://localhost:4000/video/${id}`)
       .then(function (result) {
-        const videoUrl = result.data[0].videoUrl;
+        const videoUrl = result.data[0].video_url;
         setVideoUrl(videoUrl);
         console.log(result.data[0]);
       })

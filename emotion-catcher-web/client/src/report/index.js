@@ -3,7 +3,6 @@ import "./index.css";
 import CanvasJSReact from "./assets/canvasjs.react";
 import * as Icon from "react-bootstrap-icons";
 //var CanvasJSReact = require('./canvasjs.react');
-var CanvasJS = CanvasJSReact.CanvasJS;
 var CanvasJSChart = CanvasJSReact.CanvasJSChart;
 
 function nearValue(data) {
@@ -67,7 +66,7 @@ for (var i = 0; i < Object.keys(newEmo).length; i++) {
 }
 
 let dataPoints2 = [];
-for (var i = 0; i < Object.keys(newEmo).length; i++) {
+for (i = 0; i < Object.keys(newEmo).length; i++) {
   dataPoints2.push({
     x: Object.keys(newEmo)[i],
     y: parseInt(
@@ -148,6 +147,7 @@ class ReportPage extends Component {
         <div class="px-3 py-5">
           <div class="d-flex flex-row">
             <img
+              alt="report_icon"
               id="icon1"
               src="https://emojigraph.org/media/apple/magnifying-glass-tilted-left_1f50d.png"
             />

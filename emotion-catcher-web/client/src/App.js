@@ -1,10 +1,10 @@
 import "./App.css";
 import MainPageComponent from "./main";
 import EmotionPage from "./emotion";
-import AccountPage from "./report";
+import AccountPage from "./account";
 import VideoEmotionPage from "./emotion/video_emotion";
 import ReportPage from "./report";
-import { Switch, Route, Link } from "react-router-dom";
+import { Switch, Route } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 
@@ -15,7 +15,12 @@ function App() {
       <Navbar className="sticky-top border-bottom" bg="light" expand="lg">
         <Container>
           <Navbar.Brand href="/">
-            <img src="/images/logo.png" width="110" height="50" />
+            <img
+              alt="logo_img"
+              src="/images/logo.png"
+              width="110"
+              height="50"
+            />
           </Navbar.Brand>
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
