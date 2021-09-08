@@ -113,7 +113,7 @@ class ReportPage extends Component {
         title: "영상 시간(단위 : 초)",
         titleFontFamily: "Candara",
         maximum: Object.keys(newEmo).length,
-        suffix: "'",
+        suffix: '"',
         margin: 20,
       },
       data: [

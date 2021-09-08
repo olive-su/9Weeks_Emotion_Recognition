@@ -1,7 +1,10 @@
 import "./App.css";
+import { useState, useEffect } from "react";
 import MainPageComponent from "./main";
 import EmotionPage from "./emotion";
-import AccountPage from "./account";
+import LoginPage from "./account/login";
+import JoinPage from "./account/join";
+import ProfilePage from "./account/profile";
 import VideoEmotionPage from "./emotion/video_emotion";
 import ReportPage from "./report";
 import { Switch, Route } from "react-router-dom";
@@ -9,6 +12,22 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Navbar, Container, Nav, NavDropdown } from "react-bootstrap";
 
 function App() {
+  const [isLogin, setIsLogin] = useState(localStorage.getItem("id"));
+  const onLogout = () => {
+    localStorage.removeItem("id");
+    document.location.href = "/";
+  };
+
+  useEffect(() => {
+    // 로그아웃 상태
+    if (localStorage.getItem("id") === null) {
+      console.log("isLogin ? ", isLogin);
+    } else {
+      // 로그인 상태
+      setIsLogin(true);
+      console.log("isLogin ? ", isLogin);
+    }
+  });
   return (
     <div>
       {/* Header */}
@@ -25,14 +44,29 @@ function App() {
           <Navbar.Toggle aria-controls="basic-navbar-nav" />
           <Navbar.Collapse id="basic-navbar-nav">
             <Nav className="ms-auto mb-2 mb-lg-0">
-              {/* 우측 정렬 */}
               <Nav.Link href="/">Home</Nav.Link>
-              <Nav.Link href="/emotion">Emotion Analysis</Nav.Link>
+              {isLogin ? (
+                <Nav.Link href="/emotion">Emotion Analysis</Nav.Link>
+              ) : (
+                <Nav.Link href="/account/login">Emotion Analysis</Nav.Link>
+              )}
+
               <NavDropdown title="Account" id="basic-nav-dropdown">
-                <NavDropdown.Item href="/account/3.1">Profile</NavDropdown.Item>
-                <NavDropdown.Item href="/account/3.2">Setting</NavDropdown.Item>
-                <NavDropdown.Divider />
-                <NavDropdown.Item href="/account/3.3">Sign in</NavDropdown.Item>
+                {isLogin ? (
+                  <NavDropdown.Item href="/account/profile">
+                    Profile
+                  </NavDropdown.Item>
+                ) : (
+                  <NavDropdown.Item href="/account/login">
+                    Login
+                  </NavDropdown.Item>
+                )}
+                {isLogin ? <NavDropdown.Divider /> : <div />}
+                {isLogin ? (
+                  <NavDropdown.Item onClick={onLogout}>Logout</NavDropdown.Item>
+                ) : (
+                  <NavDropdown.Item href="/account/join">Join</NavDropdown.Item>
+                )}
               </NavDropdown>
             </Nav>
           </Navbar.Collapse>
@@ -44,8 +78,14 @@ function App() {
             {/* // 기본으로 보이는 페이지는 exact True 로 설정 */}
             <MainPageComponent />;
           </Route>
-          <Route exact={true} path="/account/:id">
-            <AccountPage />
+          <Route exact={true} path="/account/login">
+            <LoginPage />
+          </Route>
+          <Route exact={true} path="/account/join">
+            <JoinPage />
+          </Route>
+          <Route exact={true} path="/account/profile">
+            <ProfilePage />
           </Route>
           <Route exact={true} path="/emotion">
             <EmotionPage />

@@ -40,9 +40,12 @@
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
+  background-color: black;
   height: 32rem;
 }
 .carousel-item > img {
+  opacity: 0.5;
+  object-fit: cover;
   position: absolute;
   top: 0;
   left: 0;

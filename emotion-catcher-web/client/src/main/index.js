@@ -9,37 +9,44 @@ function MainPage() {
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="images/banner2.png"
-            alt="Second slide"
+            src="images/7_thumbnail.png"
+            alt="First slide"
           />
           <Carousel.Caption>
-            <h3>First slide label</h3>
-            <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+            <h3>[넷플릭스] 오징어 게임</h3>
+            <p>
+              넷플릭스 《오징어 게임》 죽거나 혹은 마지막까지 살아남거나 456억
+              원을 차지하게 될 단 한명은? 《오징어 게임》 9월 17일 공개!
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="images/banner2.png"
+            src="images/8_thumbnail.png"
             alt="Second slide"
           />
 
           <Carousel.Caption>
-            <h3>Second slide label</h3>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+            <h3>[공익광고협의회] 털린 그림 찾기</h3>
+            <p>
+              프로알바생 이도현이 찾은 일상 속 털린 그림 같이 찾아볼까요? 잠깐?️
+              부모님도 우리 아이를 위해 같이 찾아 주실꺼죠?
+            </p>
           </Carousel.Caption>
         </Carousel.Item>
         <Carousel.Item>
           <img
             className="d-block w-100"
-            src="images/banner2.png"
+            src="images/9_thumbnail.png"
             alt="Third slide"
           />
 
           <Carousel.Caption>
-            <h3>Third slide label</h3>
+            <h3>[GUCCI] 구찌 가옥</h3>
             <p>
-              Praesent commodo cursus magna, vel scelerisque nisl consectetur.
+              항상 놀라움을 선사하는 구찌(@gucci)에서 이태원에 새로운
+              플래그십스토어 ‘구찌 가옥’ 을 선보입니다!
             </p>
           </Carousel.Caption>
         </Carousel.Item>
@@ -55,9 +62,6 @@ function MainPage() {
           <p class="lead fw-normal">
             영상 콘텐츠에 대한 소비자의 반응을 실시간 분석
           </p>
-          <a class="btn btn-outline-secondary" href="#">
-            자세히 알아보기
-          </a>
         </div>
         <div class="product-device shadow-sm d-none d-md-block"></div>
         <div class="product-device product-device-2 shadow-sm d-none d-md-block"></div>

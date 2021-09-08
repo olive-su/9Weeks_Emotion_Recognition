@@ -137,6 +137,14 @@ sessionStorage 비움(이전 데이터 축적 방지)
               <h4 class="alert-heading">주의사항</h4>
             </div>
             <p>
+              <p class="text-center py-1">
+                <u>
+                  사용자의 카메라 화면은{" "}
+                  <strong>절대 녹화 또는 캡쳐되지 않으며</strong>
+                  <br />
+                  수집된 감정 데이터만 리서치 및 감정 분석 리포트에 사용됩니다.
+                </u>
+              </p>
               <ul>
                 <li>
                   영상은 카메라가 <strong>얼굴 표정</strong>을 인식한 이후에
@@ -234,7 +242,6 @@ sessionStorage 비움(이전 데이터 축적 방지)
     },
   };
 
-  // 모달 닫기 버튼(최종 -> 삭제)
   const modalEvent = () => {
     let emo = JSON.stringify(window.sessionStorage);
     emo = emo.replace(/"{/g, "{");
