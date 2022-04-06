@@ -50,6 +50,14 @@
   <img src="https://user-images.githubusercontent.com/67156494/144547616-0633940c-f2a1-467d-a99e-7efa1c8839bc.png" width="800" height="600">
   </br>
   
- 3. 감정 분석 페이지
+ 3. 감정 분석 수행
   <img src="https://user-images.githubusercontent.com/67156494/144547680-2c3aac06-9e49-4c7b-8236-42860cddeff7.png" width="800" height="600">
+ 
+ <br>
+ 
+ 4. 감정 분석 결과
+ <img src="https://user-images.githubusercontent.com/67156494/161996344-a9b32d65-5579-471e-b1e6-cca71d8a28bb.png" width="800" height="500">
+
  </p>
+ 
+ 
