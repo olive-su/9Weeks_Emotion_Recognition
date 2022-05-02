@@ -3,7 +3,7 @@
 
 ## 2021.07.01. ~ 2021.09.08.
 * '코드프레소 AI 실무 개발자 양성과정'에 참여하며 만들었던 웹기반 AI 프로젝트입니다!
-* 개발 도구 : ![JavaScript](https://img.shields.io/badge/JavaScript-000000?style=flat-square&logo=Javascript&logoColor=white)
+* 개발 도구 : ![JavaScript](https://img.shields.io/badge/JavaScript-F7DF1E?style=flat-square&logo=Javascript&logoColor=white)
 ![React](https://img.shields.io/badge/React-61DAFB?style=flat-square&logo=React&logoColor=white)
 ![Express](https://img.shields.io/badge/Express-000000?style=flat-square&logo=Express&logoColor=white)
 ![Jupyter](https://img.shields.io/badge/Jupyter-F37626?style=flat-square&logo=Jupyter&logoColor=white)
@@ -53,10 +53,9 @@
  3. 감정 분석 수행
   <img src="https://user-images.githubusercontent.com/67156494/144547680-2c3aac06-9e49-4c7b-8236-42860cddeff7.png" width="800" height="600">
  
- <br>
  
  4. 감정 분석 결과
- <img src="https://user-images.githubusercontent.com/67156494/161996344-a9b32d65-5579-471e-b1e6-cca71d8a28bb.png" width="800" height="500">
+ <img src="https://user-images.githubusercontent.com/67156494/166205786-a007ce3b-7ba0-452d-b0bb-8cab26eee561.png" width="800" height="450">
 
  </p>
  
